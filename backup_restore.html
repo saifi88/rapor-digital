@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Backup & Restore Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h2>💾 Backup & Restore Data Rapor</h2>
+  <p>Pindah device tanpa kehilangan data</p>
+</header>
+
+<main class="container">
+
+  <!-- ================= BACKUP ================= -->
+  <section class="panel">
+    <h3>⬇️ Backup Data</h3>
+    <p>
+      Simpan semua data rapor ke satu file.<br>
+      <small>Disarankan backup di akhir semester.</small>
+    </p>
+
+    <button class="btn btn-primary" onclick="backupData()">
+      💾 Backup Data
+    </button>
+  </section>
+
+  <!-- ================= RESTORE ================= -->
+  <section class="panel">
+    <h3>⬆️ Restore Data</h3>
+    <p>
+      Kembalikan data dari file backup (.json).
+      <br><b>PERINGATAN:</b> Data lama akan diganti.
+    </p>
+
+    <input type="file" id="fileRestore" accept=".json">
+    <br><br>
+    <button class="btn" onclick="restoreData()">
+      🔄 Restore Data
+    </button>
+  </section>
+
+  <section style="text-align:center;">
+    <a href="index.html" class="back">← Kembali ke Beranda</a>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  Backup & Restore • Aplikasi Rapor SD • Offline
+</footer>
+
+<script src="storage.js"></script>
+<script>
+/* =====================================
+   BACKUP & RESTORE – FINAL
+===================================== */
+
+// ---------- BACKUP ----------
+function backupData() {
+  const data = {};
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    try {
+      data[key] = JSON.parse(localStorage.getItem(key));
+    } catch {
+      data[key] = localStorage.getItem(key);
+    }
+  }
+
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: "application/json" }
+  );
+
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+
+  const tanggal = new Date().toISOString().slice(0,10);
+  a.download = `backup_rapor_sd_${tanggal}.json`;
+
+  a.click();
+}
+
+// ---------- RESTORE ----------
+function restoreData() {
+  const file = document.getElementById("fileRestore").files[0];
+  if (!file) return alert("Pilih file backup terlebih dahulu");
+
+  if (!confirm("Yakin ingin restore? Data lama akan diganti.")) return;
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const data = JSON.parse(e.target.result);
+
+    localStorage.clear();
+    Object.keys(data).forEach(k => {
+      localStorage.setItem(k, JSON.stringify(data[k]));
+    });
+
+    alert("Restore berhasil ✅");
+    location.reload();
+  };
+  reader.readAsText(file);
+}
+</script>
+
+</body>
+</html>
