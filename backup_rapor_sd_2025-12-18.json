@@ -1,0 +1,886 @@
+{
+  "_uetsid": "d27ea520d6cc11ef8de99bb4d05ffa02",
+  "theme": "light",
+  "WANoiseInfo": {
+    "privKey": "LfUuj5nJYsCHBAJ1OYiDvPyAL0+NxdHPvrWjQZrqz2VjROStP0vy4Jt26Anz70cn",
+    "pubKey": "etTyalEQk7FCbLKKjocDDiVptUuvDdWfUw99Z/BxHBvGCRgwWbbfGBdMY9h8Zwnl",
+    "recoveryToken": "snTZZcH0EA09+N0eauetLD5y9I+/MXRXk2uW4Fmuq8Y="
+  },
+  "WAWebEncKeySalt": "ExbyR2OjvLdbeBpHymaPbyQOEXdKdCSwkBhgHywAjq2tiW7tzans3UzIxsA3WmeTCMKbSpLlKkldAJJWQVYygOj96Gd5fQhKeu/73EpNB4GDpQe/AUXWtwCQgGYDizh2gdwQuU6yMoiAYtjRo0VMh6DxQG5hSOCqSPjmLtUVASs=",
+  "_uetvid_exp": "Sat, 14 Feb 2026 01:21:06 GMT",
+  "dataCP": [
+    {
+      "mapel": "PAI",
+      "kode": "CP-1",
+      "deskripsi": "melafalkan, mengartikan, menjelaskan Pesan pokok k Q.S. Aḍ-Ḍuḥā serta menghubungkan dengan perilaku sehari-hari dan mempraktikkan hadits tentang n sikap solidaritas dan saling membantu"
+    },
+    {
+      "mapel": "PAI",
+      "kode": "CP-2",
+      "deskripsi": "makna dan nilai-nilai akhlak terpuji serta dapat membuat tulisan indah mengenai Asmaul Husna a al-Ghaffar, al-Afuw, al-Wāḥid, dan al-Ṣamad."
+    },
+    {
+      "mapel": "PAI",
+      "kode": "CP-3",
+      "deskripsi": "makna penyesalan dan memaafkan serta pembiasaan perilaku terpuji wujud implemetasi penyesalan dan memaafkan"
+    },
+    {
+      "mapel": "PAI",
+      "kode": "CP-4",
+      "deskripsi": "menjelaskan, membedakan makna halal dan haram serta  menerapkan ketentuan halal dan haram dalam kehidupan sehari-hari"
+    },
+    {
+      "mapel": "PAI",
+      "kode": "CP-5",
+      "deskripsi": "kisah keteladanan Khalifah Abu Bakar dan Umar bin Khattab"
+    },
+    {
+      "mapel": "PKN",
+      "kode": "CP-1",
+      "deskripsi": "menghubungkan sila-sila dalam Pancasila sebagai suatu kesatuan yang utuh"
+    },
+    {
+      "mapel": "PKN",
+      "kode": "CP-2",
+      "deskripsi": "menguraikan makna nilai-nilai Pancasila sebagai dasar negara"
+    },
+    {
+      "mapel": "PKN",
+      "kode": "CP-3",
+      "deskripsi": "menguraikan makna nilai-nilai Pancasila sebagai  pandangan hidup"
+    },
+    {
+      "mapel": "PKN",
+      "kode": "CP-4",
+      "deskripsi": "menguraikan makna nilai-nilai Pancasila sebagai ideologi bangsa dan negara"
+    },
+    {
+      "mapel": "PKN",
+      "kode": "CP-5",
+      "deskripsi": "mengimplementasikan bentuk-bentuk norma, hak, dan kewajiban dalam kedudukannya sebagai warga negara"
+    },
+    {
+      "mapel": "BIN",
+      "kode": "CP-1",
+      "deskripsi": "mengenali tokoh dan memahami alur cerita melalui cerpen yang dibacakan guru."
+    },
+    {
+      "mapel": "BIN",
+      "kode": "CP-2",
+      "deskripsi": "mengisi formulir sederhana; mengungkapkan perasaan atau kisah pribadi dalam tulisan."
+    },
+    {
+      "mapel": "BIN",
+      "kode": "CP-3",
+      "deskripsi": "menjawab pertanyaan tentang isi artikel yang dibacakan."
+    },
+    {
+      "mapel": "BIN",
+      "kode": "CP-4",
+      "deskripsi": "menulis kalimat efektif untuk hasil wawancara."
+    },
+    {
+      "mapel": "BIN",
+      "kode": "CP-5",
+      "deskripsi": "membuat pertanyaan tentang kisah yang dibacakan."
+    },
+    {
+      "mapel": "MTK",
+      "kode": "CP-1",
+      "deskripsi": "melakukan operasi perkalian dan pembagian pecahan dengan bilangan asli"
+    },
+    {
+      "mapel": "MTK",
+      "kode": "CP-2",
+      "deskripsi": "mengubah pecahan menjadi berbagai bentuk pecahan lain"
+    },
+    {
+      "mapel": "MTK",
+      "kode": "CP-3",
+      "deskripsi": "membandingkan dan mengurutkan bilangan desimal (satu angka di belakang koma)"
+    },
+    {
+      "mapel": "MTK",
+      "kode": "CP-4",
+      "deskripsi": "menyelesaikan masalah sehari-hari dengan rasio satuan"
+    },
+    {
+      "mapel": "IPAS",
+      "kode": "CP-1",
+      "deskripsi": "merefleksikan sistem gerak manusia (rangka, sendi, otot, sistem saraf) yang dikaitkan dengan cara menjaga kesehatan tubuhnya"
+    },
+    {
+      "mapel": "IPAS",
+      "kode": "CP-2",
+      "deskripsi": "meninjau sejarah perjuangan para pahlawan di lingkungan sekitar tempat tinggalnya"
+    },
+    {
+      "mapel": "IPAS",
+      "kode": "CP-3",
+      "deskripsi": "menjelaskan letak dan kondisi geografis negara di dunia dengan menggunakan peta"
+    },
+    {
+      "mapel": "IPAS",
+      "kode": "CP-4",
+      "deskripsi": "menjelaskan hubungan kerjasama Indonesia dengan negara-negara di dunia"
+    },
+    {
+      "mapel": "PJOK",
+      "kode": "CP-1",
+      "deskripsi": "Aktivitas Pola Gerak Dasar Lokomotor, Nonlokomotor, dan Manipulatif melalui Permainan Invasi"
+    },
+    {
+      "mapel": "PJOK",
+      "kode": "CP-2",
+      "deskripsi": "Aktivitas Pola Gerak Dasar Lokomotor, Nonlokomotor, dan Manipulatif melalui Permainan Net"
+    },
+    {
+      "mapel": "PJOK",
+      "kode": "CP-3",
+      "deskripsi": "Aktivitas Pola Gerak Dasar Lokomotor, Nonlokomotor, dan Manipulatif melalui Permainan Lapangan"
+    },
+    {
+      "mapel": "SR",
+      "kode": "CP-1",
+      "deskripsi": "menjelaskan unsur rupa dan prinsip desain dalam karya seni rupa."
+    },
+    {
+      "mapel": "SR",
+      "kode": "CP-2",
+      "deskripsi": "merefleksikan dan mengapresiasi karya teman sekelas menggunakan kosakata seni rupa yang sesuai."
+    },
+    {
+      "mapel": "SR",
+      "kode": "CP-3",
+      "deskripsi": "menguji coba variasi teknik penggunaan alat dan/atau bahan."
+    },
+    {
+      "mapel": "SR",
+      "kode": "CP-4",
+      "deskripsi": "membuat karya seni rupa berdasarkan hasil pengamatan terhadap lingkungan sekitar melalui pengembangan imajinasi."
+    },
+    {
+      "mapel": "SR",
+      "kode": "CP-5",
+      "deskripsi": "menghasilkan karya seni rupa yang mewakili minatnya."
+    },
+    {
+      "mapel": "BIG",
+      "kode": "CP-1",
+      "deskripsi": "menyampaikan kegiatan yang telah dilakukan di masa lalu."
+    },
+    {
+      "mapel": "BIG",
+      "kode": "CP-2",
+      "deskripsi": "menggunakan keterangan waktu untuk kegiatan di masa lalu."
+    },
+    {
+      "mapel": "BIG",
+      "kode": "CP-3",
+      "deskripsi": "menggunakan kata kerja \"to be\" (was/were) untuk kegiatan di masa lalu."
+    },
+    {
+      "mapel": "BIG",
+      "kode": "CP-4",
+      "deskripsi": "mengidentifikasi kegiatan di masa lalu menggunakan pertanyaan WH."
+    },
+    {
+      "mapel": "BIG",
+      "kode": "CP-5",
+      "deskripsi": "menanggapi pengalaman mereka terkait kegiatan di masa lalu."
+    },
+    {
+      "mapel": "BJ",
+      "kode": "CP-1",
+      "deskripsi": "menganalisis informasi berbahasa Jawa dari teks deskripsi tentang peristiwa budaya"
+    },
+    {
+      "mapel": "BJ",
+      "kode": "CP-2",
+      "deskripsi": "menganalisis informasi berbahasa Jawa dari teks cerita wayang yang disajikan"
+    },
+    {
+      "mapel": "BJ",
+      "kode": "CP-3",
+      "deskripsi": "mengidentifikasi ide pokok dari teks narasi pengalaman mengesankan"
+    },
+    {
+      "mapel": "BJ",
+      "kode": "CP-4",
+      "deskripsi": "menulis teks berbahasa Jawa ngoko dan krama narasi dan deskripsi dari gagasan, hasil pengamatan , pengalaman dan imajinasi"
+    },
+    {
+      "mapel": "BJ",
+      "kode": "CP-5",
+      "deskripsi": "mengidentifikasi nilai-nilai yang terkandung dalam teks sastra tembang macapat Maskumambang dan Mijil"
+    },
+    {
+      "mapel": "BTQ",
+      "kode": "CP-1",
+      "deskripsi": "Melafalkan kalimat Al-Qur’an yang mengandung hukum bacaan  fawātiḥus suwar dengan benar"
+    },
+    {
+      "mapel": "BTQ",
+      "kode": "CP-2",
+      "deskripsi": "Menulis kalimat Al-Qur’an yang mengandung hukum bacaan  fawātiḥus suwar dengan benar"
+    },
+    {
+      "mapel": "BTQ",
+      "kode": "CP-3",
+      "deskripsi": "Menunjukkan fasih membaca QS al-Insyirah dengan baik dan benar"
+    },
+    {
+      "mapel": "BTQ",
+      "kode": "CP-4",
+      "deskripsi": "Mampu menulis QS al-Insyirah dengan baik dan benar"
+    },
+    {
+      "mapel": "BTQ",
+      "kode": "CP-5",
+      "deskripsi": "Menunjukkan hafalan QS al-Insyirah beserta artinya dan lancar"
+    },
+    {
+      "mapel": "KOD",
+      "kode": "CP-1",
+      "deskripsi": "menerapkan pemecahan masalah sehari-hari dengan berpikir logis dan langkah terstruktur."
+    },
+    {
+      "mapel": "KOD",
+      "kode": "CP-2",
+      "deskripsi": "membuat program sederhana (tingkat pradasar) menggunakan blok perintah."
+    },
+    {
+      "mapel": "KOD",
+      "kode": "CP-3",
+      "deskripsi": "memproduksi dan membagikan konten digital sederhana (teks dan gambar) secara bertanggung jawab."
+    },
+    {
+      "mapel": "KOD",
+      "kode": "CP-4",
+      "deskripsi": "memahami sistem komputer dasar dan pentingnya etika penggunaan internet."
+    },
+    {
+      "mapel": "KOD",
+      "kode": "CP-5",
+      "deskripsi": "menjelaskan cara kerja dasar kecerdasan artifisial dan dampaknya terhadap kehidupan sehari-hari, serta menumbuhkan sikap etis dalam memanfaatkannya"
+    }
+  ],
+  "dexie_version": "3.2.2",
+  "dataSekolah": {
+    "namaSekolah": "SD Negeri 3 Wonorejo",
+    "npsn": "20522508",
+    "alamatSekolah": "Dusun Jelun RT 17 RW 3",
+    "desa": "Wonorejo",
+    "kecamatan": "Banyuputih",
+    "kabupaten": "Situbondo",
+    "provinsi": "Jawa Timur",
+    "tahunPelajaran": "2025/2026",
+    "semester": "Ganjil",
+    "kelas": "VI",
+    "waliKelas": "Saifi Ikhwan, S.Pd.SD.",
+    "nipWali": "198807182009031001",
+    "kepalaSekolah": "Surtiani, S.Pd.SD.",
+    "nipKepala": "197006102006042011",
+    "tanggalRapor": "2025-12-19"
+  },
+  "lastExternalReferrer": "empty",
+  "WebEncKeySalt": "ExbyR2OjvLdbeBpHymaPbyQOEXdKdCSwkBhgHywAjq2tiW7tzans3UzIxsA3WmeTCMKbSpLlKkldAJJWQVYygOj96Gd5fQhKeu/73EpNB4GDpQe/AUXWtwCQgGYDizh2gdwQuU6yMoiAYtjRo0VMh6DxQG5hSOCqSPjmLtUVASs=",
+  "_uetsid_exp": "Tue, 21 Jan 2025 01:21:06 GMT",
+  "lastExternalReferrerTime": 1737336066420,
+  "ub-emb-id": "2a76a6243cee48ceb20c206e19b526e0",
+  "dataMapel": [
+    {
+      "kode": "PAI",
+      "nama": "Pendidikan Agama Islam",
+      "status": "aktif"
+    },
+    {
+      "kode": "PKN",
+      "nama": "Pendidikan Pancasila",
+      "status": "aktif"
+    },
+    {
+      "kode": "BIN",
+      "nama": "Bahasa Indonesia",
+      "status": "aktif"
+    },
+    {
+      "kode": "MTK",
+      "nama": "Matematika",
+      "status": "aktif"
+    },
+    {
+      "kode": "IPAS",
+      "nama": "Ilmu Pengetahuan Alam dan Sosial",
+      "status": "aktif"
+    },
+    {
+      "kode": "PJOK",
+      "nama": "Pendidikan Jasmani, Olahraga, dam Kesehatan",
+      "status": "aktif"
+    },
+    {
+      "kode": "SR",
+      "nama": "Seni Rupa",
+      "status": "aktif"
+    },
+    {
+      "kode": "BIG",
+      "nama": "Bahasa Inggris",
+      "status": "aktif"
+    },
+    {
+      "kode": "BJ",
+      "nama": "Bahasa Jawa",
+      "status": "aktif"
+    },
+    {
+      "kode": "BTQ",
+      "nama": "Baca Tulis Al-Qur'an",
+      "status": "aktif"
+    },
+    {
+      "kode": "KOD",
+      "nama": "Koding dan Kecerdasan Artifisial",
+      "status": "aktif"
+    }
+  ],
+  "_uetvid": "d27eaff0d6cc11efa7e28138f2bebe11",
+  "_upf_fingerprint": {
+    "value": {
+      "uuid": "1c9033db-4fea-4712-960d-5f03484e77da",
+      "confidence": 1
+    },
+    "at": 1737336066596
+  },
+  "dataSiswa": [
+    {
+      "nis": 1971,
+      "nisn": "3147591339",
+      "nama": "ABDAN KHAIRI STABIT",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-07-25",
+      "agama": "Islam",
+      "alamat": "Jalan Pandean RT 27 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Imam Taufik",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Evayanti",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1973,
+      "nisn": "0135902210",
+      "nama": "ADE RIO SYAHPUTRA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-09-09",
+      "agama": "Islam",
+      "alamat": "KP. JELUN RT 12 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "MARIONO",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "NUR ASIA",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1974,
+      "nisn": "3133707078",
+      "nama": "AHMAD ABIZAR ALQIFAHRI",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-07-21",
+      "agama": "Islam",
+      "alamat": "Pandean RT 17 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Mohammad Anzir",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Siti Nurjanah",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 2084,
+      "nisn": "3130650318",
+      "nama": "AHMAD RISKI ALI SIDIQ",
+      "jk": "L",
+      "tempat_lahir": "BANYUWANGI",
+      "tanggal_lahir": "2013-10-20",
+      "agama": "Islam",
+      "alamat": "Muncar RT 2 / RW 2 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "SHODIQ",
+      "pekerjaan_ayah": "Nelayan",
+      "nama_ibu": "SULASTUTIK",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1975,
+      "nisn": "0131546697",
+      "nama": "AINUN DAFFA PRATAMA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-04-25",
+      "agama": "Islam",
+      "alamat": "Pandean RT 17 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Tumirin",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "Misiyem",
+      "pekerjaan_ibu": "Petani",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1977,
+      "nisn": "3132319797",
+      "nama": "AKHYAR TAUHID KHALIFATURROHMAN",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-11-26",
+      "agama": "Islam",
+      "alamat": "Pandean RT 11 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Yang Hulung Arrohman",
+      "pekerjaan_ayah": "PNS/TNI/Polri",
+      "nama_ibu": "Rhezka Chorisma",
+      "pekerjaan_ibu": "Karyawan Swasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1978,
+      "nisn": "3144096614",
+      "nama": "ALFIN DWI SAPUTRA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-01-17",
+      "agama": "Islam",
+      "alamat": "Jalan Pandean RT 24 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Nyoman Hariyono",
+      "pekerjaan_ayah": "Nelayan",
+      "nama_ibu": "Kadek Sudarmi",
+      "pekerjaan_ibu": "Karyawan Swasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1979,
+      "nisn": "3141825910",
+      "nama": "ANDRE AL FARIN",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-04-11",
+      "agama": "Islam",
+      "alamat": "Pandean RT 18 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Sukardi",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "Hamidah",
+      "pekerjaan_ibu": "Petani",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1980,
+      "nisn": "3149706691",
+      "nama": "ARDIANANTA BARLI SAPUTRA",
+      "jk": "L",
+      "tempat_lahir": "BANYUWANGI",
+      "tanggal_lahir": "2014-01-27",
+      "agama": "Islam",
+      "alamat": "Pandean RT 18 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Warsito",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Endang Widiawati",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1982,
+      "nisn": "3148708266",
+      "nama": "BAGAS OKTAVIAN SAPUTRA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-10-14",
+      "agama": "Islam",
+      "alamat": "Pandean RT 16 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Supriyanto",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Kartini Aniyah",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1983,
+      "nisn": "3132250876",
+      "nama": "DHIFA AULIA CANTIKA PUTRI",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-10-20",
+      "agama": "Islam",
+      "alamat": "Pandean RT 28 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Slamet Riyadi",
+      "pekerjaan_ayah": "Nelayan",
+      "nama_ibu": "Siti Hotijah",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1985,
+      "nisn": "3133488560",
+      "nama": "DIPO AMMAR SAYYIDINA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-10-25",
+      "agama": "Islam",
+      "alamat": "JALAN PANDEAN  RT 17 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "NANANG DWI WAHONO",
+      "pekerjaan_ayah": "PNS/TNI/Polri",
+      "nama_ibu": "NIA DIANA",
+      "pekerjaan_ibu": "PNS/TNI/Polri",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1986,
+      "nisn": "3145290031",
+      "nama": "DWI PUTRI CAHYA CANTIKA",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-10-28",
+      "agama": "Islam",
+      "alamat": "Pandean RT 18 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Siswanto",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "Juma'iya",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1987,
+      "nisn": "3139971752",
+      "nama": "FARIS EKO SUSANDI",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-08-11",
+      "agama": "Islam",
+      "alamat": "Pandean RT 22 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Eko Ponidi",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Yayuk Susi Susanti",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1988,
+      "nisn": "3146219777",
+      "nama": "HAFIZ AL-AZIZ",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-03-09",
+      "agama": "Islam",
+      "alamat": "Pandean RT 26 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Deni Eko Purnomo",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Suci Fitriyani",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1989,
+      "nisn": "3147434143",
+      "nama": "HAPPY SEPTYAN ADI CANDRA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-10-27",
+      "agama": "Islam",
+      "alamat": "Pandean RT 22 / RW 5 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Isnadi",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Srianah",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1990,
+      "nisn": "0134447235",
+      "nama": "IFAD ARDIN YANTO",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-01-27",
+      "agama": "Islam",
+      "alamat": "JL PANDEAN RT 3 / RW 7 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "SUGIANTO",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "NELIS SOLIHAT",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1991,
+      "nisn": "3138931829",
+      "nama": "IRENA PUTRI FADILA",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-05-10",
+      "agama": "Islam",
+      "alamat": "Pandean RT 18 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Slamet Adi Mulyono",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Ida Agustina",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1992,
+      "nisn": "0137137958",
+      "nama": "KEEFE OZZORA DARREL ARIFIN",
+      "jk": "L",
+      "tempat_lahir": "BANYUWANGI",
+      "tanggal_lahir": "2013-06-13",
+      "agama": "Islam",
+      "alamat": "Dusun Krajan RT 1 / RW 2 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Samsul Arifin",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Dwi Novi Anita ",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1993,
+      "nisn": "3133034139",
+      "nama": "LITSA AFIQOTUL AZHILA",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-10-13",
+      "agama": "Islam",
+      "alamat": "Pandean RT 22 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Ahmad Zainal",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Trisnawati",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1995,
+      "nisn": "0136179940",
+      "nama": "MOCHAMAD ARFA DZAKA AL AZIZ",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-04-12",
+      "agama": "Islam",
+      "alamat": "JL PANDEAN RT 1 / RW 2 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "IMRON AZIZI",
+      "pekerjaan_ayah": "PNS/TNI/Polri",
+      "nama_ibu": "LILA KHUSNUL KHOTIMAH",
+      "pekerjaan_ibu": "Lainnya",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1996,
+      "nisn": "3131145794",
+      "nama": "MUHAMMAD KHOIRUL ANAM",
+      "jk": "L",
+      "tempat_lahir": "BANYUWANGI",
+      "tanggal_lahir": "2013-12-07",
+      "agama": "Islam",
+      "alamat": "Pandean RT 17 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Asan",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Jumaiya",
+      "pekerjaan_ibu": "Wiraswasta",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1997,
+      "nisn": "3143269770",
+      "nama": "NAZRIL FERDIANSYAH",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-01-06",
+      "agama": "Islam",
+      "alamat": "Pandean RT 23 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Rudi Hartono",
+      "pekerjaan_ayah": "Nelayan",
+      "nama_ibu": "Kristiana Dwi Anggraini",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1998,
+      "nisn": "3144083728",
+      "nama": "NUR RANI SAFITRI",
+      "jk": "P",
+      "tempat_lahir": "BANYUWANGI",
+      "tanggal_lahir": "2014-03-02",
+      "agama": "Islam",
+      "alamat": "Pandean RT 28 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Busairi",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "Devi Riskiyanti",
+      "pekerjaan_ibu": "Petani",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 1999,
+      "nisn": "3132713277",
+      "nama": "RADITYA FAHREZA",
+      "jk": "L",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-07-13",
+      "agama": "Islam",
+      "alamat": "Pandean RT 22 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Abdul Gafur",
+      "pekerjaan_ayah": "Buruh",
+      "nama_ibu": "Yuyun Romantika",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 2001,
+      "nisn": "0138481832",
+      "nama": "SAFA NUR RAHMAWATI",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-11-15",
+      "agama": "Islam",
+      "alamat": "JL PANDEAN RT 16 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "PANIYO",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "FINAWATI",
+      "pekerjaan_ibu": "Petani",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 2003,
+      "nisn": "0131174708",
+      "nama": "YURICKA APRILANA KARIN ANJANI",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-04-13",
+      "agama": "Islam",
+      "alamat": "JL PANDEAN RT 13 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "RICKY WIBOWO",
+      "pekerjaan_ayah": "Wiraswasta",
+      "nama_ibu": "TIKA WAHYUNINGSIH",
+      "pekerjaan_ibu": "Lainnya",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 2004,
+      "nisn": "3133279460",
+      "nama": "ZHAHIRA ADELIA MEKA",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2013-10-24",
+      "agama": "Islam",
+      "alamat": "Pandean RT 17 / RW 4 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Harnatun",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "Kartini",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    },
+    {
+      "nis": 2005,
+      "nisn": "3140203951",
+      "nama": "ZIVILIA CITRA KIRANA",
+      "jk": "P",
+      "tempat_lahir": "SITUBONDO",
+      "tanggal_lahir": "2014-01-03",
+      "agama": "Islam",
+      "alamat": "Pandean RT 18 / RW 3 ",
+      "pendidikan_sebelumnya": "TK",
+      "nama_ayah": "Muhammad Ikram",
+      "pekerjaan_ayah": "Petani",
+      "nama_ibu": "Tumini",
+      "pekerjaan_ibu": "Tidak bekerja",
+      "nama_wali": "",
+      "pekerjaan_wali": "",
+      "no_hp": ""
+    }
+  ],
+  "_sessionState": 2320479970,
+  "WANoiseInfoIv": [
+    "AE61PsjmjMNuxD+iWMtTsg==",
+    "OD9BDWQU7aUXfGgFYb8L8g==",
+    "wwwMNDq7pT1W7H0N4swVQQ=="
+  ]
+}
