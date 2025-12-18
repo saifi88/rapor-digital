@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pengaturan Aplikasi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h2>⚙️ Pengaturan</h2>
+  <p>Pengaturan dasar aplikasi rapor</p>
+</header>
+
+<main class="container">
+
+  <!-- ================= PEMBULATAN NILAI ================= -->
+  <section class="panel">
+    <h3>🔢 Pembulatan Nilai Akhir</h3>
+
+    <p>Pilih metode pembulatan nilai rapor.</p>
+
+    <select id="modePembulatan">
+      <option value="round">Standar (Pembulatan normal)</option>
+      <option value="floor">Ke bawah</option>
+      <option value="ceil">Ke atas</option>
+    </select>
+
+    <br><br>
+    <button class="btn btn-primary" onclick="simpanPengaturan()">
+      💾 Simpan Pengaturan
+    </button>
+  </section>
+
+  <!-- ================= RESET DATA ================= -->
+  <section class="panel">
+    <h3>♻️ Reset Data Nilai</h3>
+
+    <p style="color:#b00;">
+      Reset hanya menghapus <b>nilai</b>, tidak menghapus data siswa & sekolah.
+    </p>
+
+    <button class="btn" onclick="resetNilai()">
+      Reset Data Nilai
+    </button>
+  </section>
+
+  <!-- ================= KUNCI RAPOR ================= -->
+  <section class="panel">
+    <h3>🔒 Kunci Rapor</h3>
+
+    <p>
+      Aktifkan jika rapor sudah dicetak dan tidak ingin ada perubahan nilai.
+    </p>
+
+    <label>
+      <input type="checkbox" id="kunciRapor">
+      Kunci input nilai & asesmen
+    </label>
+
+    <br><br>
+    <button class="btn" onclick="simpanKunciRapor()">
+      Simpan Status Kunci
+    </button>
+  </section>
+
+  <!-- ================= NAVIGASI ================= -->
+  <section style="text-align:center;">
+    <a href="index.html" class="back">← Kembali</a>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>Pengaturan • Aplikasi Rapor SD • Offline</p>
+</footer>
+
+<script src="storage.js"></script>
+<script>
+/* =====================================
+   PENGATURAN – FINAL
+===================================== */
+
+// ---------- LOAD ----------
+function loadPengaturan() {
+  const p = JSON.parse(localStorage.getItem("pengaturan")) || {};
+  modePembulatan.value = p.pembulatan || "round";
+  kunciRapor.checked = p.kunciRapor || false;
+}
+
+// ---------- SIMPAN ----------
+function simpanPengaturan() {
+  const p = JSON.parse(localStorage.getItem("pengaturan")) || {};
+  p.pembulatan = modePembulatan.value;
+
+  localStorage.setItem("pengaturan", JSON.stringify(p));
+  alert("Pengaturan pembulatan disimpan ✅");
+}
+
+// ---------- RESET NILAI ----------
+function resetNilai() {
+  if (!confirm("Yakin reset semua data nilai dan asesmen?")) return;
+
+  localStorage.removeItem("asesmenNilai");
+  localStorage.removeItem("asesmenCP");
+
+  alert("Data nilai berhasil direset ✅");
+}
+
+// ---------- KUNCI RAPOR ----------
+function simpanKunciRapor() {
+  const p = JSON.parse(localStorage.getItem("pengaturan")) || {};
+  p.kunciRapor = kunciRapor.checked;
+
+  localStorage.setItem("pengaturan", JSON.stringify(p));
+  alert("Status kunci rapor disimpan ✅");
+}
+
+document.addEventListener("DOMContentLoaded", loadPengaturan);
+</script>
+
+</body>
+</html>
