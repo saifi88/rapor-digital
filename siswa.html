@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Data Siswa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>👨‍🎓 Data Siswa</h2>
+  <p>Kelola biodata siswa</p>
+</header>
+
+<main class="container">
+
+<!-- ================= FORM ================= -->
+<section class="panel">
+  <h3>➕ Tambah / Edit Siswa</h3>
+
+  <form id="formSiswa">
+    <input type="hidden" id="idx">
+
+    <label>NIS</label>
+    <input id="nis" required>
+
+    <label>NISN</label>
+    <input id="nisn">
+
+    <label>Nama Lengkap</label>
+    <input id="nama" required>
+
+    <label>Jenis Kelamin</label>
+    <select id="jk">
+      <option value="">- pilih -</option>
+      <option value="L">Laki-laki</option>
+      <option value="P">Perempuan</option>
+    </select>
+
+    <label>Tempat Lahir</label>
+    <input id="tempat_lahir">
+
+    <label>Tanggal Lahir</label>
+    <input id="tanggal_lahir" type="date">
+
+    <label>Agama</label>
+    <input id="agama">
+
+    <label>Alamat</label>
+    <textarea id="alamat" rows="2"></textarea>
+
+    <label>Pendidikan Sebelumnya</label>
+    <input id="pendidikan_sebelumnya">
+
+    <hr>
+
+    <label>Nama Ayah</label>
+    <input id="nama_ayah">
+
+    <label>Pekerjaan Ayah</label>
+    <input id="pekerjaan_ayah">
+
+    <label>Nama Ibu</label>
+    <input id="nama_ibu">
+
+    <label>Pekerjaan Ibu</label>
+    <input id="pekerjaan_ibu">
+
+    <label>Nama Wali</label>
+    <input id="nama_wali">
+
+    <label>Pekerjaan Wali</label>
+    <input id="pekerjaan_wali">
+
+    <label>No. HP</label>
+    <input id="no_hp">
+
+    <br>
+    <button class="btn btn-primary">💾 Simpan</button>
+    <button type="button" class="btn" onclick="resetForm()">↩️ Batal</button>
+  </form>
+</section>
+
+<!-- ================= TABEL ================= -->
+<section class="panel">
+  <h3>📋 Daftar Siswa</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>NIS</th>
+        <th>Nama</th>
+        <th>JK</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="tabelSiswa"></tbody>
+  </table>
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Data Siswa • Aplikasi Rapor SD</p>
+</footer>
+
+<script src="storage.js"></script>
+
+<script>
+/* =====================================================
+   SISWA.HTML – FINAL
+===================================================== */
+
+function getSiswa(){
+  return getData("dataSiswa");
+}
+
+function loadSiswa(){
+  const data = getSiswa();
+  const tbody = document.getElementById("tabelSiswa");
+  tbody.innerHTML = "";
+
+  data.forEach((s, i) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${s.nis}</td>
+        <td>${s.nama}</td>
+        <td>${s.jk || "-"}</td>
+        <td>
+          <button onclick="editSiswa(${i})">✏️</button>
+          <button onclick="hapusSiswa(${i})">🗑️</button>
+        </td>
+      </tr>`;
+  });
+}
+
+function editSiswa(i){
+  const s = getSiswa()[i];
+  idx.value = i;
+
+  Object.keys(s).forEach(k => {
+    const el = document.getElementById(k);
+    if(el) el.value = s[k];
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function hapusSiswa(i){
+  if(!confirm("Hapus data siswa ini?")) return;
+
+  const data = getSiswa();
+  data.splice(i, 1);
+  setData("dataSiswa", data);
+  loadSiswa();
+}
+
+function resetForm(){
+  document.getElementById("formSiswa").reset();
+  idx.value = "";
+}
+
+document.getElementById("formSiswa").onsubmit = e => {
+  e.preventDefault();
+
+  const data = getSiswa();
+  const obj = {};
+
+  formSiswa.querySelectorAll("input, textarea, select").forEach(el => {
+    obj[el.id] = el.value.trim();
+  });
+
+  if(idx.value === ""){
+    data.push(obj);
+  } else {
+    data[idx.value] = obj;
+  }
+
+  setData("dataSiswa", data);
+  resetForm();
+  loadSiswa();
+};
+
+document.addEventListener("DOMContentLoaded", loadSiswa);
+</script>
+
+</body>
+</html>

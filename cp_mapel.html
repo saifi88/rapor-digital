@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Capaian Pembelajaran</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>📄 Capaian Pembelajaran (CP)</h2>
+  <p>Master deskripsi CP per mata pelajaran</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+<form id="formCP">
+  <input type="hidden" id="idx">
+
+  <label>Mata Pelajaran</label>
+  <select id="mapel" required></select>
+
+  <label>Nomor CP</label>
+  <select id="noCP">
+    <option value="1">CP1</option>
+    <option value="2">CP2</option>
+    <option value="3">CP3</option>
+    <option value="4">CP4</option>
+    <option value="5">CP5</option>
+    <option value="6">CP6</option>
+    <option value="7">CP7</option>
+  </select>
+
+  <label>Deskripsi CP</label>
+  <textarea id="deskripsi" rows="3" required></textarea>
+
+  <button class="btn btn-primary">💾 Simpan CP</button>
+</form>
+</section>
+
+<section class="panel">
+  <h3>📥 Import CP (Excel)</h3>
+
+  <div style="display:flex; gap:10px; flex-wrap:wrap;">
+    <button class="btn" onclick="downloadTemplate()">⬇️ Download Template XLSX</button>
+    <input type="file" id="fileCP" accept=".xlsx">
+    <button class="btn" onclick="importCP()">📥 Import CP</button>
+  </div>
+
+  <p style="font-size:0.85em; margin-top:8px;">
+    ℹ️ Sheet wajib bernama <b>CP_MAPEL</b>, kolom: KODE_MAPEL, CP, DESKRIPSI
+  </p>
+</section>
+
+<section class="panel">
+  <h3>📋 Daftar CP</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Mapel</th>
+        <th>CP</th>
+        <th>Deskripsi</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="tabelCP"></tbody>
+  </table>
+</section>
+
+<a href="index.html" class="back">← Kembali</a>
+
+</main>
+
+<script src="storage.js"></script>
+<script src="xlsx.full.min.js"></script>
+
+<script>
+/* =====================================================
+   LOAD MAPEL
+===================================================== */
+function loadMapel(){
+  const m = getData("dataMapel").filter(x=>x.status==="aktif");
+  mapel.innerHTML = m.map(x =>
+    `<option value="${x.kode}">${x.nama}</option>`
+  ).join("");
+}
+
+/* =====================================================
+   LOAD CP
+===================================================== */
+function loadCP(){
+  const data = getData("cpMapel");
+  tabelCP.innerHTML = "";
+  data.forEach((c,i)=>{
+    tabelCP.innerHTML += `
+      <tr>
+        <td>${c.mapel}</td>
+        <td>CP${c.no}</td>
+        <td>${c.deskripsi}</td>
+        <td>
+          <button onclick="edit(${i})">✏️</button>
+          <button onclick="hapus(${i})">🗑️</button>
+        </td>
+      </tr>`;
+  });
+}
+
+/* =====================================================
+   SIMPAN MANUAL
+===================================================== */
+formCP.onsubmit = e => {
+  e.preventDefault();
+  let data = getData("cpMapel");
+
+  const obj = {
+    mapel: mapel.value,
+    no: Number(noCP.value),
+    deskripsi: deskripsi.value.trim()
+  };
+
+  data = data.filter(x => !(x.mapel===obj.mapel && x.no===obj.no));
+  data.push(obj);
+
+  setData("cpMapel", data);
+  formCP.reset();
+  idx.value="";
+  loadCP();
+};
+
+/* =====================================================
+   EDIT & HAPUS
+===================================================== */
+function edit(i){
+  const c = getData("cpMapel")[i];
+  idx.value = i;
+  mapel.value = c.mapel;
+  noCP.value = c.no;
+  deskripsi.value = c.deskripsi;
+}
+
+function hapus(i){
+  if(!confirm("Hapus CP ini?")) return;
+  let data = getData("cpMapel");
+  data.splice(i,1);
+  setData("cpMapel", data);
+  loadCP();
+}
+
+/* =====================================================
+   TEMPLATE XLSX
+===================================================== */
+function downloadTemplate(){
+  const contoh = [{
+    KODE_MAPEL: "PAI",
+    CP: 1,
+    DESKRIPSI: "Contoh deskripsi CP"
+  }];
+  const ws = XLSX.utils.json_to_sheet(contoh);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "CP_MAPEL");
+  XLSX.writeFile(wb, "template_cp_mapel.xlsx");
+}
+
+/* =====================================================
+   IMPORT XLSX
+===================================================== */
+function importCP(){
+  const file = document.getElementById("fileCP").files[0];
+  if(!file){ alert("Pilih file Excel terlebih dahulu"); return; }
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const wb = XLSX.read(e.target.result, { type:"binary" });
+    const ws = wb.Sheets["CP_MAPEL"];
+    if(!ws){ alert("Sheet CP_MAPEL tidak ditemukan"); return; }
+
+    const rows = XLSX.utils.sheet_to_json(ws);
+    let data = getData("cpMapel");
+
+    rows.forEach(r=>{
+      if(!r.KODE_MAPEL || !r.CP || !r.DESKRIPSI) return;
+
+      data = data.filter(x =>
+        !(x.mapel===String(r.KODE_MAPEL) && x.no===Number(r.CP))
+      );
+
+      data.push({
+        mapel: String(r.KODE_MAPEL),
+        no: Number(r.CP),
+        deskripsi: String(r.DESKRIPSI)
+      });
+    });
+
+    setData("cpMapel", data);
+    loadCP();
+    alert("Import CP berhasil ✅");
+  };
+  reader.readAsBinaryString(file);
+}
+
+/* INIT */
+document.addEventListener("DOMContentLoaded",()=>{
+  loadMapel();
+  loadCP();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Data Sekolah</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>🏫 Data Sekolah & Rapor</h2>
+  <p>Identitas sekolah dan pengaturan rapor</p>
+</header>
+
+<main class="container">
+
+<section class="panel">
+<form id="formSekolah">
+
+  <!-- ================= IDENTITAS SEKOLAH ================= -->
+  <h3>Identitas Sekolah</h3>
+
+  <label>Nama Sekolah</label>
+  <input type="text" id="namaSekolah" required>
+
+  <label>NPSN</label>
+  <input type="text" id="npsn">
+
+  <label>Website Sekolah</label>
+  <input type="url" id="websiteSekolah" placeholder="https://sekolah.sch.id">
+
+  <label>Email Sekolah</label>
+  <input type="email" id="emailSekolah" placeholder="info@sekolah.sch.id">
+
+  <label>Alamat Sekolah</label>
+  <textarea id="alamatSekolah" rows="2"></textarea>
+
+  <label>Desa / Kelurahan</label>
+  <input type="text" id="desa">
+
+  <label>Kecamatan</label>
+  <input type="text" id="kecamatan">
+
+  <label>Kabupaten / Kota</label>
+  <input type="text" id="kabupaten">
+
+  <label>Provinsi</label>
+  <input type="text" id="provinsi">
+
+  <hr>
+
+  <!-- ================= RAPOR ================= -->
+  <h3>Informasi Rapor</h3>
+
+  <label>Tahun Pelajaran</label>
+  <input type="text" id="tahunPelajaran" placeholder="2024 / 2025" required>
+
+  <label>Semester</label>
+  <select id="semester">
+    <option value="Ganjil">Ganjil</option>
+    <option value="Genap">Genap</option>
+  </select>
+
+  <label>Kelas</label>
+  <input type="text" id="kelas" placeholder="VI" required>
+
+  <label>Tanggal Rapor</label>
+  <input type="date" id="tanggalRapor" required>
+
+  <hr>
+
+  <!-- ================= PEJABAT ================= -->
+  <h3>Pejabat Penandatangan</h3>
+
+  <label>Nama Wali Kelas</label>
+  <input type="text" id="waliKelas">
+
+  <label>NIP Wali Kelas</label>
+  <input type="text" id="nipWali">
+
+  <label>Nama Kepala Sekolah</label>
+  <input type="text" id="kepalaSekolah">
+
+  <label>NIP Kepala Sekolah</label>
+  <input type="text" id="nipKepala">
+
+  <br><br>
+  <button class="btn btn-primary">💾 Simpan Data Sekolah</button>
+
+</form>
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Data Sekolah • Aplikasi Rapor SD • Kurikulum Merdeka</p>
+</footer>
+
+<script src="storage.js"></script>
+<script>
+/* =====================================================
+   DATA SEKOLAH – FINAL (LENGKAP)
+===================================================== */
+const form = document.getElementById("formSekolah");
+
+function loadData(){
+  const d = getData("dataSekolah")[0];
+  if(!d) return;
+
+  namaSekolah.value   = d.namaSekolah || "";
+  npsn.value          = d.npsn || "";
+  websiteSekolah.value= d.websiteSekolah || "";
+  emailSekolah.value  = d.emailSekolah || "";
+
+  alamatSekolah.value = d.alamatSekolah || "";
+  desa.value          = d.desa || "";
+  kecamatan.value     = d.kecamatan || "";
+  kabupaten.value     = d.kabupaten || "";
+  provinsi.value      = d.provinsi || "";
+
+  tahunPelajaran.value = d.tahunPelajaran || "";
+  semester.value       = d.semester || "Ganjil";
+  kelas.value          = d.kelas || "";
+  tanggalRapor.value   = d.tanggalRapor || "";
+
+  waliKelas.value     = d.waliKelas || "";
+  nipWali.value       = d.nipWali || "";
+  kepalaSekolah.value = d.kepalaSekolah || "";
+  nipKepala.value     = d.nipKepala || "";
+}
+
+form.onsubmit = e => {
+  e.preventDefault();
+
+  const data = {
+    namaSekolah: namaSekolah.value.trim(),
+    npsn: npsn.value.trim(),
+    websiteSekolah: websiteSekolah.value.trim(),
+    emailSekolah: emailSekolah.value.trim(),
+
+    alamatSekolah: alamatSekolah.value.trim(),
+    desa: desa.value.trim(),
+    kecamatan: kecamatan.value.trim(),
+    kabupaten: kabupaten.value.trim(),
+    provinsi: provinsi.value.trim(),
+
+    tahunPelajaran: tahunPelajaran.value.trim(),
+    semester: semester.value,
+    kelas: kelas.value.trim(),
+    tanggalRapor: tanggalRapor.value,
+
+    waliKelas: waliKelas.value.trim(),
+    nipWali: nipWali.value.trim(),
+    kepalaSekolah: kepalaSekolah.value.trim(),
+    nipKepala: nipKepala.value.trim()
+  };
+
+  setData("dataSekolah", [data]);
+  alert("Data sekolah berhasil disimpan ✅");
+};
+
+document.addEventListener("DOMContentLoaded", loadData);
+</script>
+
+</body>
+</html>

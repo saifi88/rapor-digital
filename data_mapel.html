@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Data Mata Pelajaran</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>📚 Data Mata Pelajaran</h2>
+  <p>Master mata pelajaran rapor Kurikulum Merdeka</p>
+</header>
+
+<main class="container">
+
+<!-- ================= FORM MAPEL ================= -->
+<section class="panel">
+  <h3>➕ Tambah / Edit Mata Pelajaran</h3>
+
+  <form id="formMapel">
+    <input type="hidden" id="idx">
+
+    <label>Nomor Rapor</label>
+    <input id="no_rapor" type="number" min="1" required>
+
+    <label>Kode Mapel</label>
+    <input id="kode" required>
+
+    <label>Nama Mata Pelajaran</label>
+    <input id="nama" required>
+
+    <label>Kelompok</label>
+    <select id="kelompok" required>
+      <option value="">- pilih -</option>
+      <option value="Muatan Pelajaran">Muatan Pelajaran</option>
+      <option value="Mapel Pilihan">Mata Pelajaran Pilihan</option>
+      <option value="Muatan Lokal">Muatan Lokal</option>
+    </select>
+
+    <label>Status</label>
+    <select id="status">
+      <option value="aktif">Aktif</option>
+      <option value="nonaktif">Nonaktif</option>
+    </select>
+
+    <br>
+    <button class="btn btn-primary">💾 Simpan</button>
+    <button type="button" class="btn" onclick="resetForm()">↩️ Batal</button>
+  </form>
+</section>
+
+<!-- ================= TABEL MAPEL ================= -->
+<section class="panel">
+  <h3>📋 Daftar Mata Pelajaran</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No Rapor</th>
+        <th>Kode</th>
+        <th>Nama Mapel</th>
+        <th>Kelompok</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="tabelMapel"></tbody>
+  </table>
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Data Mata Pelajaran • Kurikulum Merdeka</p>
+</footer>
+
+<script src="storage.js"></script>
+
+<script>
+/* =====================================================
+   DATA MAPEL – FINAL & TERKUNCI
+===================================================== */
+
+function getMapel(){
+  return getData("dataMapel");
+}
+
+function loadMapel(){
+  const data = getMapel()
+    .sort((a,b)=>a.no_rapor-b.no_rapor);
+
+  const tbody = document.getElementById("tabelMapel");
+  tbody.innerHTML = "";
+
+  data.forEach((m,i)=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${m.no_rapor}</td>
+        <td>${m.kode}</td>
+        <td>${m.nama}</td>
+        <td>${m.kelompok}</td>
+        <td>
+          <span style="
+            padding:2px 8px;
+            border-radius:6px;
+            background:${m.status==="aktif"?"#2563eb":"#475569"};
+            color:#fff;
+            font-size:0.8em">
+            ${m.status}
+          </span>
+        </td>
+        <td>
+          <button onclick="editMapel(${i})">✏️</button>
+          <button onclick="hapusMapel(${i})">🗑️</button>
+        </td>
+      </tr>`;
+  });
+}
+
+function editMapel(i){
+  const m = getMapel()
+    .sort((a,b)=>a.no_rapor-b.no_rapor)[i];
+
+  idx.value      = i;
+  no_rapor.value = m.no_rapor;
+  kode.value     = m.kode;
+  nama.value     = m.nama;
+  kelompok.value = m.kelompok;
+  status.value   = m.status;
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function hapusMapel(i){
+  if(!confirm("Hapus mata pelajaran ini?")) return;
+
+  const data = getMapel()
+    .sort((a,b)=>a.no_rapor-b.no_rapor);
+
+  data.splice(i,1);
+  setData("dataMapel",data);
+  loadMapel();
+}
+
+function resetForm(){
+  formMapel.reset();
+  idx.value="";
+}
+
+formMapel.onsubmit = e=>{
+  e.preventDefault();
+
+  const data = getMapel();
+  const obj = {
+    no_rapor: Number(no_rapor.value),
+    kode: kode.value.trim(),
+    nama: nama.value.trim(),
+    kelompok: kelompok.value,
+    status: status.value
+  };
+
+  if(idx.value===""){
+    data.push(obj);
+  }else{
+    data[idx.value]=obj;
+  }
+
+  setData("dataMapel",data);
+  resetForm();
+  loadMapel();
+};
+
+document.addEventListener("DOMContentLoaded", loadMapel);
+</script>
+
+</body>
+</html>

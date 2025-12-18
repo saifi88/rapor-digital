@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Catatan Guru</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>📝 Catatan Wali Kelas</h2>
+  <p>Pilih kode catatan untuk setiap siswa</p>
+</header>
+
+<main class="container excel-page">
+
+<section class="panel">
+
+  <div class="excel-action">
+    <h3>📋 Catatan Guru (Model RDM)</h3>
+    <button class="btn btn-primary" onclick="simpan()">💾 Simpan</button>
+  </div>
+
+  <table class="excel-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Siswa</th>
+        <th>C1</th>
+        <th>C2</th>
+        <th>C3</th>
+        <th>C4</th>
+        <th>C5</th>
+        <th>C6</th>
+        <th>C7</th>
+      </tr>
+    </thead>
+    <tbody id="tabel"></tbody>
+  </table>
+
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Catatan Guru • Kurikulum Merdeka</p>
+</footer>
+
+<script src="storage.js"></script>
+<script>
+/* =====================================================
+   MASTER CATATAN GURU (TERKUNCI)
+===================================================== */
+const CATATAN = {
+  C1: "menunjukkan sikap disiplin, tanggung jawab, dan kepedulian yang sangat baik dalam kegiatan pembelajaran.",
+  C2: "memiliki motivasi belajar yang baik dan aktif dalam mengikuti kegiatan pembelajaran.",
+  C3: "menunjukkan sikap sopan, santun, dan mampu bekerja sama dengan baik.",
+  C4: "perlu meningkatkan kemandirian dan kepercayaan diri dalam mengikuti pembelajaran.",
+  C5: "perlu meningkatkan kedisiplinan dan tanggung jawab dalam menyelesaikan tugas.",
+  C6: "perlu pendampingan dalam mengelola emosi dan berinteraksi secara positif dengan teman.",
+  C7: "memerlukan perhatian dan pendampingan lebih lanjut untuk meningkatkan sikap dan kebiasaan belajar."
+};
+
+/* =====================================================
+   LOAD SISWA
+===================================================== */
+function load(){
+  const siswa = getData("dataSiswa");
+  const tbody = document.getElementById("tabel");
+  tbody.innerHTML = "";
+
+  siswa.forEach((s,i)=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td class="nama">${s.nama}</td>
+        ${Object.keys(CATATAN).map(k=>`
+          <td>
+            <input type="radio" name="c_${s.nis}" value="${k}">
+          </td>`).join("")}
+      </tr>`;
+  });
+}
+
+/* =====================================================
+   SIMPAN
+===================================================== */
+function simpan(){
+  const siswa = getData("dataSiswa");
+  let data = [];
+
+  siswa.forEach(s=>{
+    const pilih = document.querySelector(`input[name="c_${s.nis}"]:checked`);
+    if(!pilih) return;
+
+    data.push({
+      nis: s.nis,
+      kode: pilih.value,
+      deskripsi: CATATAN[pilih.value]
+    });
+  });
+
+  setData("catatanGuru", data);
+  alert("Catatan guru tersimpan ✅");
+}
+
+document.addEventListener("DOMContentLoaded", load);
+</script>
+
+</body>
+</html>

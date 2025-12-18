@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kokurikuler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>🎯 Kokurikuler</h2>
+  <p>Input tema, kegiatan, dan asesmen kokurikuler siswa</p>
+</header>
+
+<main class="container excel-page">
+
+<section class="panel">
+
+  <h3>📌 Data Kokurikuler</h3>
+
+  <label>Tema Kokurikuler</label>
+  <select id="tema">
+    <option>Penguatan Profil Pelajar Pancasila</option>
+    <option>Literasi dan Numerasi Kontekstual</option>
+    <option>Kepedulian Sosial dan Lingkungan</option>
+    <option>Kearifan Lokal</option>
+    <option>Kesehatan, Keselamatan, dan Kebugaran</option>
+    <option>Kreativitas dan Kewirausahaan</option>
+  </select>
+
+  <label>Nama Kegiatan</label>
+  <input id="kegiatan" placeholder="Contoh: Kerja Bakti Lingkungan Sekolah">
+
+  <label>Deskripsi Umum Kegiatan</label>
+  <textarea id="deskripsiUmum" rows="3"></textarea>
+
+</section>
+
+<section class="panel">
+
+  <div class="excel-action">
+    <h3>📋 Asesmen Kokurikuler</h3>
+    <button class="btn btn-primary" onclick="simpan()">💾 Simpan</button>
+  </div>
+
+  <table class="excel-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Siswa</th>
+        <th>Sangat Baik</th>
+        <th>Baik</th>
+        <th>Cukup</th>
+        <th>Perlu Pendampingan</th>
+      </tr>
+    </thead>
+    <tbody id="tabel"></tbody>
+  </table>
+
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Kokurikuler • Kurikulum Merdeka</p>
+</footer>
+
+<script src="storage.js"></script>
+<script>
+/* =====================================================
+   KOKURIKULER FINAL
+===================================================== */
+
+const DESKRIPSI = {
+  "Sangat Baik":
+    "menunjukkan keterlibatan aktif dan konsisten dalam kegiatan kokurikuler serta mampu bekerja sama dan menunjukkan sikap positif.",
+  "Baik":
+    "berpartisipasi dengan baik dalam kegiatan kokurikuler dan menunjukkan sikap yang sesuai dengan tujuan kegiatan.",
+  "Cukup":
+    "mengikuti kegiatan kokurikuler namun masih perlu meningkatkan keaktifan dan konsistensi.",
+  "Perlu Pendampingan":
+    "membutuhkan pendampingan lebih lanjut agar dapat berpartisipasi dan menunjukkan sikap yang diharapkan."
+};
+
+function load(){
+  const siswa = getData("dataSiswa");
+  const tbody = document.getElementById("tabel");
+  tbody.innerHTML = "";
+
+  siswa.forEach((s,i)=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td class="nama">${s.nama}</td>
+        ${["Sangat Baik","Baik","Cukup","Perlu Pendampingan"]
+          .map(p=>`
+          <td>
+            <input type="radio" name="p_${s.nis}" value="${p}">
+          </td>`).join("")}
+      </tr>`;
+  });
+}
+
+function simpan(){
+  const siswa = getData("dataSiswa");
+  let data = [];
+
+  siswa.forEach(s=>{
+    const pred = document.querySelector(`input[name="p_${s.nis}"]:checked`);
+    if(!pred) return;
+
+    data.push({
+      nis: s.nis,
+      tema: tema.value,
+      kegiatan: kegiatan.value,
+      predikat: pred.value,
+      deskripsi: DESKRIPSI[pred.value]
+    });
+  });
+
+  setData("kokurikuler", data);
+  alert("Data kokurikuler tersimpan ✅");
+}
+
+document.addEventListener("DOMContentLoaded", load);
+</script>
+
+</body>
+</html>

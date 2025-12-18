@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Asesmen Nilai</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nilai-page">
+
+<header class="app-header">
+  <h2>🧮 Asesmen Nilai</h2>
+  <p>Input CP (Formatif), STS, dan SAS</p>
+</header>
+
+<main class="container">
+
+<!-- ================= PILIH MAPEL ================= -->
+<section class="panel">
+  <label>Mata Pelajaran</label>
+  <select id="pilihMapel"></select>
+</section>
+
+<!-- ================= IMPORT / TEMPLATE ================= -->
+<section class="panel">
+  <button class="btn" onclick="downloadTemplate()">⬇️ Download Template Excel</button>
+  <input type="file" id="fileExcel" accept=".xlsx">
+  <button class="btn" onclick="importExcel()">⬆️ Import Excel</button>
+</section>
+
+<!-- ================= TABEL NILAI ================= -->
+<section class="panel">
+  <h3>📋 Input Nilai Siswa</h3>
+
+  <table class="table">
+    <thead id="theadNilai"></thead>
+    <tbody id="tabelNilai"></tbody>
+  </table>
+
+  <button class="btn btn-primary" onclick="simpan()">💾 Simpan Semua</button>
+</section>
+
+<a href="index.html" class="back">← Kembali</a>
+
+</main>
+
+<script src="xlsx.full.min.js"></script>
+<script src="storage.js"></script>
+
+<script>
+/* =====================================================
+   UTIL
+===================================================== */
+function getParam(n){
+  return new URLSearchParams(window.location.search).get(n);
+}
+
+function getJumlahCP(kode){
+  const m = getData("dataMapel").find(x=>x.kode===kode);
+  return m?.jumlahCP || 5;
+}
+
+let mapelAktif = "";
+
+/* =====================================================
+   LOAD MAPEL
+===================================================== */
+function loadMapel(){
+  const m = getData("dataMapel").filter(x=>x.status==="aktif");
+  pilihMapel.innerHTML = m.map(x =>
+    `<option value="${x.kode}">${x.nama}</option>`
+  ).join("");
+
+  const fromUrl = getParam("mapel");
+  if(fromUrl && m.find(x=>x.kode===fromUrl)){
+    pilihMapel.value = fromUrl;
+  }
+
+  mapelAktif = pilihMapel.value;
+  pilihMapel.onchange = ()=>{
+    mapelAktif = pilihMapel.value;
+    renderTabel();
+  };
+}
+
+/* =====================================================
+   RENDER HEADER & TABEL
+===================================================== */
+function renderTabel(){
+  const siswa = getData("dataSiswa");
+  const data = getData("asesmenNilai");
+  const jmlCP = getJumlahCP(mapelAktif);
+
+  // HEADER
+  let h = `<tr><th>Nama</th>`;
+  for(let i=1;i<=jmlCP;i++) h+=`<th>CP${i}</th>`;
+  h+=`<th>STS</th><th>SAS</th><th>Nilai Akhir</th></tr>`;
+  theadNilai.innerHTML = h;
+
+  // BODY
+  tabelNilai.innerHTML = "";
+  siswa.forEach(s=>{
+    const d = data.find(x=>x.nis===s.nis && x.mapel===mapelAktif)
+      || {cp:{}, sts:"", sas:"", nilai_akhir:""};
+
+    let row = `<tr data-nis="${s.nis}"><td>${s.nama}</td>`;
+    for(let i=1;i<=jmlCP;i++){
+      row+=`<td><input type="number" min="0" max="100"
+        value="${d.cp?.["CP"+i]||""}"></td>`;
+    }
+    row+=`
+      <td><input class="sts" type="number" value="${d.sts||""}"></td>
+      <td><input class="sas" type="number" value="${d.sas||""}"></td>
+      <td class="hasil">${d.nilai_akhir||""}</td>
+    </tr>`;
+    tabelNilai.innerHTML += row;
+  });
+
+  hitungLive();
+}
+
+/* =====================================================
+   HITUNG OTOMATIS
+===================================================== */
+function hitungLive(){
+  document.querySelectorAll("#tabelNilai tr").forEach(tr=>{
+    tr.querySelectorAll("input").forEach(inp=>{
+      inp.oninput = ()=>{
+        const cp = [...tr.querySelectorAll("td input")]
+          .filter((_,i)=>i<getJumlahCP(mapelAktif))
+          .map(x=>Number(x.value))
+          .filter(x=>!isNaN(x));
+
+        const formatif = cp.length
+          ? Math.round(cp.reduce((a,b)=>a+b,0)/cp.length)
+          : 0;
+
+        const sts = Number(tr.querySelector(".sts")?.value||0);
+        const sas = Number(tr.querySelector(".sas")?.value||0);
+        const akhir = Math.round((formatif+sts+sas)/3);
+
+        tr.querySelector(".hasil").innerText = akhir||"";
+      };
+    });
+  });
+}
+
+/* =====================================================
+   SIMPAN
+===================================================== */
+function simpan(){
+  let data = getData("asesmenNilai")
+    .filter(x=>x.mapel!==mapelAktif);
+
+  document.querySelectorAll("#tabelNilai tr").forEach(tr=>{
+    const nis = tr.dataset.nis;
+    const jmlCP = getJumlahCP(mapelAktif);
+    const cp = {};
+
+    tr.querySelectorAll("td input").forEach((inp,i)=>{
+      if(i<jmlCP && inp.value!==""){
+        cp["CP"+(i+1)] = Number(inp.value);
+      }
+    });
+
+    const sts = Number(tr.querySelector(".sts")?.value||0);
+    const sas = Number(tr.querySelector(".sas")?.value||0);
+
+    const formatif = Object.values(cp).length
+      ? Math.round(Object.values(cp).reduce((a,b)=>a+b,0)/Object.values(cp).length)
+      : 0;
+
+    const nilai_akhir = Math.round((formatif+sts+sas)/3);
+
+    data.push({
+      nis, mapel:mapelAktif, cp, sts, sas,
+      formatif, nilai_akhir
+    });
+  });
+
+  setData("asesmenNilai", data);
+  alert("Nilai berhasil disimpan ✅");
+}
+
+/* =====================================================
+   TEMPLATE & IMPORT EXCEL
+===================================================== */
+function downloadTemplate(){
+  const jmlCP = getJumlahCP(mapelAktif);
+  let header = ["NIS","Nama"];
+  for(let i=1;i<=jmlCP;i++) header.push("CP"+i);
+  header.push("STS","SAS");
+
+  const ws = XLSX.utils.aoa_to_sheet([header]);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "NILAI");
+  XLSX.writeFile(wb, `template_${mapelAktif}.xlsx`);
+}
+
+function importExcel(){
+  const file = fileExcel.files[0];
+  if(!file) return alert("Pilih file Excel");
+
+  const reader = new FileReader();
+  reader.onload = e=>{
+    const wb = XLSX.read(e.target.result,{type:"binary"});
+    const ws = wb.Sheets["NILAI"];
+    if(!ws) return alert("Sheet NILAI tidak ditemukan");
+
+    const rows = XLSX.utils.sheet_to_json(ws,{defval:""});
+    let data = getData("asesmenNilai")
+      .filter(x=>x.mapel!==mapelAktif);
+
+    rows.forEach(r=>{
+      if(!r.NIS) return;
+      const cp = {};
+      Object.keys(r).forEach(k=>{
+        if(k.startsWith("CP") && r[k]!==""){
+          cp[k] = Number(r[k]);
+        }
+      });
+
+      const formatif = Object.values(cp).length
+        ? Math.round(Object.values(cp).reduce((a,b)=>a+b,0)/Object.values(cp).length)
+        : 0;
+
+      const sts = Number(r.STS||0);
+      const sas = Number(r.SAS||0);
+      const akhir = Math.round((formatif+sts+sas)/3);
+
+      data.push({
+        nis:String(r.NIS),
+        mapel:mapelAktif,
+        cp, sts, sas,
+        formatif,
+        nilai_akhir:akhir
+      });
+    });
+
+    setData("asesmenNilai", data);
+    renderTabel();
+    alert("Import berhasil ✅");
+  };
+  reader.readAsBinaryString(file);
+}
+
+/* INIT */
+document.addEventListener("DOMContentLoaded",()=>{
+  loadMapel();
+  renderTabel();
+});
+</script>
+
+</body>
+</html>

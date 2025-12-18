@@ -1,0 +1,218 @@
+/* ===============================
+   GLOBAL
+=============================== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  color: #f8fafc;
+  margin-top: 0;
+}
+
+/* ===============================
+   HEADER & FOOTER
+=============================== */
+.app-header {
+  padding: 18px 16px;
+  text-align: center;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.85em;
+  color: #94a3b8;
+}
+
+/* ===============================
+   LAYOUT
+=============================== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+}
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ===============================
+   PANEL
+=============================== */
+.panel {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* ===============================
+   FORM
+=============================== */
+.panel form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: #cbd5f5;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #f8fafc;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+/* ===============================
+   BUTTON
+=============================== */
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #1e293b;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #334155;
+}
+
+.btn-primary {
+  background: #2563eb;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 16px;
+  color: #93c5fd;
+}
+
+/* ===============================
+   TABLE
+=============================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+}
+
+th, td {
+  border: 1px solid #334155;
+  padding: 8px;
+  font-size: 0.9em;
+}
+
+th {
+  background: #020617;
+}
+
+/* ===============================
+   PRINT MODE (AUTO LIGHT)
+=============================== */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .panel,
+  .app-header,
+  .app-footer {
+    background: #fff !important;
+    border: none !important;
+  }
+
+  th, td {
+    border: 1px solid #000 !important;
+  }
+
+  a, button {
+    display: none !important;
+  }
+}
+
+/* ===============================
+   RESPONSIVE (HP)
+=============================== */
+@media (max-width: 600px) {
+  .container,
+  .dashboard {
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  .panel form {
+    max-width: 100%;
+  }
+
+  label {
+    font-size: 0.85em;
+    margin-top: 10px;
+  }
+
+  input, select, textarea {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+}

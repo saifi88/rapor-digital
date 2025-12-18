@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Import Data Siswa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h2>📥 Import Data Siswa</h2>
+  <p>Import massal data siswa dari Excel</p>
+</header>
+
+<main class="container">
+
+<!-- ================= TEMPLATE ================= -->
+<section class="panel">
+  <h3>⬇️ Download Template Excel</h3>
+  <p>
+    Gunakan template ini untuk mengisi data siswa.<br>
+    <small>Nama kolom & urutan tidak boleh diubah.</small>
+  </p>
+
+  <button class="btn btn-primary" onclick="downloadTemplate()">
+    Download Template Siswa
+  </button>
+</section>
+
+<!-- ================= IMPORT ================= -->
+<section class="panel">
+  <h3>⬆️ Import File Excel</h3>
+
+  <input type="file" id="fileSiswa" accept=".xlsx">
+
+  <br><br>
+  <button class="btn" onclick="importSiswa()">
+    Import Data Siswa
+  </button>
+
+  <p style="font-size:0.85em;color:#94a3b8;margin-top:10px;">
+    ⚠️ Data hasil impor akan <b>menambah</b> data lama.<br>
+    Jika NIS sama, data akan <b>ditimpa</b>.
+  </p>
+</section>
+
+<a href="index.html" class="back">← Kembali ke Beranda</a>
+
+</main>
+
+<footer class="app-footer">
+  <p>Import Data Siswa • Aplikasi Rapor SD</p>
+</footer>
+
+<script src="xlsx.full.min.js"></script>
+<script src="storage.js"></script>
+
+<script>
+/* =====================================================
+   TEMPLATE
+===================================================== */
+function downloadTemplate(){
+  const contoh = [{
+    NIS: "",
+    NISN: "",
+    Nama: "",
+    JK: "L/P",
+    Tempat_Lahir: "",
+    Tanggal_Lahir: "YYYY-MM-DD",
+    Agama: "",
+    Alamat: "",
+    Pendidikan_Sebelumnya: "",
+    Nama_Ayah: "",
+    Pekerjaan_Ayah: "",
+    Nama_Ibu: "",
+    Pekerjaan_Ibu: "",
+    Nama_Wali: "",
+    Pekerjaan_Wali: "",
+    No_HP: ""
+  }];
+
+  const ws = XLSX.utils.json_to_sheet(contoh);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "DATA_SISWA");
+  XLSX.writeFile(wb, "template_import_siswa.xlsx");
+}
+
+/* =====================================================
+   IMPORT SISWA
+===================================================== */
+function importSiswa(){
+  const file = document.getElementById("fileSiswa").files[0];
+  if(!file){
+    alert("Pilih file Excel terlebih dahulu");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const wb = XLSX.read(e.target.result, {type:"binary"});
+    const ws = wb.Sheets["DATA_SISWA"];
+    if(!ws){
+      alert("Sheet DATA_SISWA tidak ditemukan");
+      return;
+    }
+
+    const rows = XLSX.utils.sheet_to_json(ws);
+    if(rows.length === 0){
+      alert("File kosong");
+      return;
+    }
+
+    let data = getData("dataSiswa");
+
+    rows.forEach(r => {
+      if(!r.NIS || !r.Nama) return;
+
+      const obj = {
+        nis: String(r.NIS).trim(),
+        nisn: String(r.NISN || "").trim(),
+        nama: String(r.Nama).trim(),
+        jk: r.JK || "",
+        tempat_lahir: r.Tempat_Lahir || "",
+        tanggal_lahir: r.Tanggal_Lahir || "",
+        agama: r.Agama || "",
+        alamat: r.Alamat || "",
+        pendidikan_sebelumnya: r.Pendidikan_Sebelumnya || "",
+        nama_ayah: r.Nama_Ayah || "",
+        pekerjaan_ayah: r.Pekerjaan_Ayah || "",
+        nama_ibu: r.Nama_Ibu || "",
+        pekerjaan_ibu: r.Pekerjaan_Ibu || "",
+        nama_wali: r.Nama_Wali || "",
+        pekerjaan_wali: r.Pekerjaan_Wali || "",
+        no_hp: r.No_HP || ""
+      };
+
+      const idx = data.findIndex(s => s.nis === obj.nis);
+      if(idx >= 0){
+        data[idx] = obj; // timpa jika NIS sama
+      } else {
+        data.push(obj);
+      }
+    });
+
+    setData("dataSiswa", data);
+    alert("Import data siswa berhasil ✅");
+    document.getElementById("fileSiswa").value = "";
+  };
+
+  reader.readAsBinaryString(file);
+}
+</script>
+
+</body>
+</html>

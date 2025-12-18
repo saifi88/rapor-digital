@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Aplikasi Rapor SD – Kurikulum Merdeka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="./">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#020617">
+</head>
+
+<body>
+
+<header class="app-header">
+  <h1>Rapor Digital SD</h1>
+  <p>Kurikulum Merdeka • Offline</p>
+</header>
+
+<main class="dashboard">
+
+  <!-- ================= PANEL DATA ================= -->
+  <section class="panel">
+    <h2>📘 Data Utama</h2>
+
+    <a href="data_sekolah.html" class="btn">🏫 Data Sekolah</a>
+    <a href="import_siswa.html" class="btn">👦 Import Data Siswa</a>
+    <a href="siswa.html" class="btn">✏️ Kelola Data Siswa</a>
+    <a href="data_mapel.html" class="btn">📚 Data Mata Pelajaran</a>
+    <a href="cp_mapel.html" class="btn">📄 Capaian Pembelajaran (CP)</a>
+  </section>
+
+  <!-- ================= PANEL ASESMEN ================= -->
+  <section class="panel">
+    <h2>🧮 Asesmen Nilai</h2>
+    <p style="font-size:0.85em; color:#94a3b8;">
+      Klik mapel untuk langsung input nilai (CP • STS • SAS)
+    </p>
+
+    <a href="asesmen_nilai.html?mapel=PAI" class="btn btn-primary">PAI</a>
+    <a href="asesmen_nilai.html?mapel=PKN" class="btn btn-primary">PKn</a>
+    <a href="asesmen_nilai.html?mapel=BIN" class="btn btn-primary">B. Indonesia</a>
+    <a href="asesmen_nilai.html?mapel=MTK" class="btn btn-primary">Matematika</a>
+    <a href="asesmen_nilai.html?mapel=IPAS" class="btn btn-primary">IPAS</a>
+    <a href="asesmen_nilai.html?mapel=SR" class="btn btn-primary">Seni Rupa</a>
+    <a href="asesmen_nilai.html?mapel=PJOK" class="btn btn-primary">PJOK</a>
+    <a href="asesmen_nilai.html?mapel=BIG" class="btn btn-primary">B. Inggris</a>
+    <a href="asesmen_nilai.html?mapel=BJ" class="btn btn-primary">B. Jawa</a>
+    <a href="asesmen_nilai.html?mapel=BTQ" class="btn btn-primary">BTQ</a>
+    <a href="asesmen_nilai.html?mapel=KOD" class="btn btn-primary">Koding</a>
+
+    <hr>
+
+    <a href="asesmen_nilai.html" class="btn">
+      🧾 Buka Semua Mapel (Mode Wali Kelas)
+    </a>
+  </section>
+
+  <!-- ================= PANEL OUTPUT ================= -->
+  <section class="panel">
+    <h2>📊 Output</h2>
+
+    <a href="rapor.html" class="btn btn-primary">📄 Cetak Rapor</a>
+    <a href="rekap_rapor.html" class="btn">📊 Rekap Nilai Kelas</a>
+    <a href="catatan_guru.html" class="btn">📝 Catatan Wali Kelas</a>
+
+    <hr>
+
+    <a href="backup_restore.html" class="btn">💾 Backup & Restore</a>
+    <a href="pengaturan.html" class="btn">⚙️ Pengaturan</a>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>
+    © 2025 – Aplikasi Rapor SD<br>
+    Kurikulum Merdeka
+  </p>
+</footer>
+
+<script>
+/* PWA */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(reg => console.log("SW aktif:", reg.scope))
+      .catch(err => console.error("SW gagal:", err));
+  });
+}
+</script>
+
+</body>
+</html>

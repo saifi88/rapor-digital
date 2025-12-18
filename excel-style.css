@@ -1,0 +1,106 @@
+/* ===============================
+   MODE EXCEL / RDM
+=============================== */
+
+.excel-page .panel {
+  padding: 16px 18px;
+}
+
+/* Header mapel */
+.excel-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   TABEL INPUT NILAI
+=============================== */
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.excel-table th,
+.excel-table td {
+  border: 1px solid #334155;
+  padding: 6px;
+  text-align: center;
+}
+
+.excel-table th {
+  background: #020617;
+  font-weight: 600;
+}
+
+/* Kolom nama siswa */
+.excel-table td.nama {
+  text-align: left;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+/* Input angka */
+.excel-table input[type="number"] {
+  width: 100%;
+  padding: 6px 4px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #f8fafc;
+  text-align: center;
+  font-weight: 600;
+}
+
+.excel-table input[type="number"]:focus {
+  border-color: #38bdf8;
+  outline: none;
+}
+
+/* ===============================
+   RINGKASAN NILAI
+=============================== */
+.excel-summary {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #020617;
+  border: 1px dashed #334155;
+  border-radius: 8px;
+  font-size: 0.9em;
+  color: #cbd5f5;
+}
+
+/* ===============================
+   ACTION BAR
+=============================== */
+.excel-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.excel-action .btn {
+  margin-top: 0;
+}
+
+/* ===============================
+   RESPONSIVE (HP)
+=============================== */
+@media (max-width: 700px) {
+  .excel-table {
+    font-size: 0.8em;
+  }
+
+  .excel-table th,
+  .excel-table td {
+    padding: 5px;
+  }
+
+  .excel-table input[type="number"] {
+    padding: 5px 3px;
+    font-size: 0.85em;
+  }
+}
