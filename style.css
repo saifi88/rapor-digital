@@ -69,7 +69,7 @@ h1, h2, h3 {
 }
 
 /* ===============================
-   FORM
+   FORM (RAPI & TIDAK TEPI)
 =============================== */
 .panel form {
   max-width: 520px;
@@ -214,5 +214,87 @@ th {
 
   h3 {
     font-size: 1em;
+  }
+}
+/* ===============================
+   STYLE KHUSUS INPUT NILAI
+=============================== */
+
+/* Fokus halaman nilai */
+.nilai-page .panel {
+  padding: 16px 18px;
+}
+
+/* Form nilai lebih lebar tapi terkontrol */
+.nilai-page .panel form {
+  max-width: 720px;
+}
+
+/* Grid input nilai */
+.nilai-grid {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px 100px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* Header grid */
+.nilai-grid.header {
+  font-weight: 600;
+  color: #e2e8f0;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 6px;
+}
+
+/* Label materi / mapel */
+.nilai-label {
+  font-size: 0.9em;
+  color: #cbd5f5;
+}
+
+/* Input angka khusus nilai */
+.nilai-page input[type="number"],
+.nilai-page input.nilai {
+  width: 100%;
+  text-align: center;
+  padding: 8px 6px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+/* Fokus angka */
+.nilai-page input[type="number"]:focus {
+  border-color: #38bdf8;
+  background: #020617;
+}
+
+/* Ringkasan nilai */
+.nilai-summary {
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #020617;
+  border: 1px dashed #334155;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+/* ===============================
+   RESPONSIVE INPUT NILAI (HP)
+=============================== */
+@media (max-width: 600px) {
+
+  .nilai-grid {
+    grid-template-columns: 1fr 70px 70px 70px;
+    gap: 8px;
+  }
+
+  .nilai-label {
+    font-size: 0.85em;
+  }
+
+  .nilai-page input[type="number"] {
+    padding: 7px 4px;
+    font-size: 0.9em;
   }
 }
